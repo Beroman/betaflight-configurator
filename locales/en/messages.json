@@ -414,6 +414,108 @@
     "tabPidTuning": {
         "message": "PID Tuning"
     },
+    "tabAutotune": {
+        "message": "Autotune"
+    },
+    "autotuneOverviewTitle": {
+        "message": "How Autotune Works"
+    },
+    "autotuneOverviewText": {
+        "message": "Autotune automatically finds optimal PID gains for your quadcopter. It gradually increases each gain (D, then P) while monitoring for oscillation, then backs off to a safe value. The whole process runs in-flight while you hover in <strong>Angle mode</strong>. I-gain is derived from P using the configured ratio. Feedforward (F-term) and filters are not modified."
+    },
+    "autotuneQuickStartTitle": {
+        "message": "Quick Start"
+    },
+    "autotuneStep1": {
+        "message": "Go to the <strong>Modes</strong> tab and assign both <strong>ANGLE</strong> and <strong>AUTOTUNE</strong> to AUX switches."
+    },
+    "autotuneStep2": {
+        "message": "Take off and hover in <strong>Angle mode</strong> at a comfortable altitude (3–5 m)."
+    },
+    "autotuneStep3": {
+        "message": "<strong>Activate the AUTOTUNE switch</strong> — a beep confirms the start. Hold a steady hover."
+    },
+    "autotuneStep4": {
+        "message": "Wait 1–3 minutes. The OSD shows progress: <code>ATUNE ROLL D 25%</code>. A double beep and <code>AUTOTUNE DONE</code> means it's finished."
+    },
+    "autotuneStep5": {
+        "message": "<strong>Flip the AUTOTUNE switch off.</strong> Gains are already saved. To abort mid-tune, flip the switch off — gains revert to originals and nothing is saved."
+    },
+    "autotuneSettingsTitle": {
+        "message": "Autotune Parameters"
+    },
+    "autotuneGainRampRate": {
+        "message": "Gain Ramp Rate"
+    },
+    "autotuneGainRampRateHelp": {
+        "message": "How fast gains increase per second (÷100). Default 107 = 1.07× per second, meaning the gain doubles in ~10 seconds. Higher values tune faster but are more aggressive. Range: 101–150."
+    },
+    "autotuneGainMargin": {
+        "message": "Gain Margin (%)"
+    },
+    "autotuneGainMarginHelp": {
+        "message": "Safety margin (÷100). When oscillation is detected, the gain is scaled to this percentage of the oscillation point. Default 60 = keep 60% of the oscillation gain (40% safety margin). Lower = more conservative. Range: 30–90."
+    },
+    "autotuneOscThreshold": {
+        "message": "Oscillation Threshold"
+    },
+    "autotuneOscThresholdHelp": {
+        "message": "Oscillation detection sensitivity — the PID output slew-rate threshold (deg/s²). Lower values detect lighter oscillations (more sensitive). Higher values require stronger oscillation before triggering. Default 25. Range: 5–100."
+    },
+    "autotunePiRatio": {
+        "message": "P:I Ratio (%)"
+    },
+    "autotunePiRatioHelp": {
+        "message": "I-gain is derived from P: I = P × (ratio ÷ 100). Default 80 = I is 80% of P. Increase for more stability in wind, decrease for less I-term bounce. Range: 20–200."
+    },
+    "autotuneMaxGainMult": {
+        "message": "Max Gain Multiplier (÷10)"
+    },
+    "autotuneMaxGainMultHelp": {
+        "message": "Maximum allowed gain as a multiple of the original (÷10). Default 40 = gains can go up to 4.0× the starting value. If the ramp hits this ceiling without detecting oscillation, it uses the ceiling value with the gain margin applied. Range: 10–100."
+    },
+    "autotuneSettleTime": {
+        "message": "Settle Time (ms)"
+    },
+    "autotuneSettleTimeHelp": {
+        "message": "Time to wait after each gain change before measuring for oscillation. Allows the PID loop to stabilize before checking. Default 500 ms. Range: 100–5000."
+    },
+    "autotuneTimeout": {
+        "message": "Timeout (ms)"
+    },
+    "autotuneTimeoutHelp": {
+        "message": "Maximum time per axis per tuning phase (D or P). If no oscillation is detected before timeout, the best gain found so far is used. Default 30000 ms (30 seconds). Range: 5000–60000."
+    },
+    "autotuneTuneYaw": {
+        "message": "Tune Yaw"
+    },
+    "autotuneTuneYawHelp": {
+        "message": "Whether to also tune the yaw axis. Disabled by default because yaw dynamics are different from roll/pitch and may not benefit from automated tuning. Enable only if needed."
+    },
+    "autotuneTipsTitle": {
+        "message": "Tips & Safety"
+    },
+    "autotuneTip1": {
+        "message": "<strong>Back up your tune first:</strong> In the CLI tab, run <code>diff all</code> and save the output. This lets you restore everything if needed."
+    },
+    "autotuneTip2": {
+        "message": "<strong>Start with reasonable PID gains.</strong> Autotune ramps upward from your current gains. Stock Betaflight defaults are a good starting point."
+    },
+    "autotuneTip3": {
+        "message": "<strong>Fly in calm conditions.</strong> Wind introduces external disturbances that can confuse oscillation detection."
+    },
+    "autotuneTip4": {
+        "message": "<strong>Run it twice for a refined result.</strong> The first pass gives a good baseline; the second pass starting from those gains can refine them further."
+    },
+    "autotuneTip5": {
+        "message": "<strong>You can abort at any time</strong> by flipping the AUTOTUNE switch off. All gains revert to their original values and nothing is saved to EEPROM."
+    },
+    "autotuneButtonSave": {
+        "message": "Save"
+    },
+    "autotuneSettingsSaved": {
+        "message": "Autotune settings saved successfully."
+    },
     "tabReceiver": {
         "message": "Receiver"
     },

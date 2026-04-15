@@ -1238,6 +1238,18 @@ MspHelper.prototype.process_data = function (dataHandler) {
                     FC.ADVANCED_TUNING.tpaRate = parseFloat((data.readU8() / 100).toFixed(2));
                     FC.ADVANCED_TUNING.tpaBreakpoint = data.readU16();
 
+                    // Autotune parameters
+                    if (data.remaining() >= 10) {
+                        FC.ADVANCED_TUNING.autotuneGainRampRate = data.readU8();
+                        FC.ADVANCED_TUNING.autotuneGainMargin = data.readU8();
+                        FC.ADVANCED_TUNING.autotuneOscThreshold = data.readU8();
+                        FC.ADVANCED_TUNING.autotunePiRatio = data.readU8();
+                        FC.ADVANCED_TUNING.autotuneMaxGainMultiplier = data.readU8();
+                        FC.ADVANCED_TUNING.autotuneSettleTimeMs = data.readU16();
+                        FC.ADVANCED_TUNING.autotuneTimeoutMs = data.readU16();
+                        FC.ADVANCED_TUNING.autotuneTuneYaw = data.readU8();
+                    }
+
                     FC.ADVANCED_TUNING_ACTIVE = { ...FC.ADVANCED_TUNING };
                     break;
                 case MSPCodes.MSP_SENSOR_CONFIG:
@@ -2271,6 +2283,16 @@ MspHelper.prototype.crunch = function (code, modifierCode = undefined) {
             buffer.push8(FC.ADVANCED_TUNING.tpaMode);
             buffer.push8(Math.round(FC.ADVANCED_TUNING.tpaRate * 100));
             buffer.push16(FC.ADVANCED_TUNING.tpaBreakpoint);
+
+            // Autotune parameters
+            buffer.push8(FC.ADVANCED_TUNING.autotuneGainRampRate);
+            buffer.push8(FC.ADVANCED_TUNING.autotuneGainMargin);
+            buffer.push8(FC.ADVANCED_TUNING.autotuneOscThreshold);
+            buffer.push8(FC.ADVANCED_TUNING.autotunePiRatio);
+            buffer.push8(FC.ADVANCED_TUNING.autotuneMaxGainMultiplier);
+            buffer.push16(FC.ADVANCED_TUNING.autotuneSettleTimeMs);
+            buffer.push16(FC.ADVANCED_TUNING.autotuneTimeoutMs);
+            buffer.push8(FC.ADVANCED_TUNING.autotuneTuneYaw);
             break;
         case MSPCodes.MSP_SET_SENSOR_CONFIG:
             buffer.push8(FC.SENSOR_CONFIG.acc_hardware);

@@ -189,6 +189,9 @@
                             <li class="tab_pid_tuning">
                                 <a href="#" i18n="tabPidTuning" class="tabicon ic_pid" i18n_title="tabPidTuning"></a>
                             </li>
+                            <li class="tab_autotune" v-show="FC.CONFIG?.buildOptions?.includes('USE_AUTOTUNE')">
+                                <a href="#" i18n="tabAutotune" class="tabicon ic_pid" i18n_title="tabAutotune"></a>
+                            </li>
                             <li class="tab_receiver">
                                 <a href="#" i18n="tabReceiver" class="tabicon ic_rx" i18n_title="tabReceiver"></a>
                             </li>

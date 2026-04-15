@@ -597,6 +597,14 @@ const FC = {
             thrustLinearization: 0,
             tpaRate: 0,
             tpaBreakpoint: 0,
+            autotuneGainRampRate: 107,
+            autotuneGainMargin: 60,
+            autotuneOscThreshold: 25,
+            autotunePiRatio: 80,
+            autotuneMaxGainMultiplier: 40,
+            autotuneSettleTimeMs: 500,
+            autotuneTimeoutMs: 30000,
+            autotuneTuneYaw: 0,
         };
         this.ADVANCED_TUNING_ACTIVE = { ...this.ADVANCED_TUNING };
 
