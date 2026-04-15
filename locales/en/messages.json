@@ -2722,6 +2722,10 @@
         "message": "Use to toggle customized CAMERA CONTROL 3. Check in vendor manual",
         "description": "Help text to customized CAMERA CONTROL 3 mode"
     },
+    "auxiliaryHelpMode_AUTOTUNE": {
+        "message": "Enables QuickTune-style PID autotune. Requires ANGLE mode to be active. Activate the switch to start tuning; deactivate to abort and revert gains.",
+        "description": "Help text for AUTOTUNE mode"
+    },
     "auxiliaryHelpMode_CAMSTAB": {
         "message": "Enables Camera Stabilisation mode",
         "description": "Help text to CAMSTAB mode"
